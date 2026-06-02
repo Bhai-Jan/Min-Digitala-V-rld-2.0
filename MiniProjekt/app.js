@@ -1,5 +1,5 @@
 /**
- * Min Digitala Värld - Förenklad och rensad version
+ * Min Digitala Värld 
  */
 
 let state = {
