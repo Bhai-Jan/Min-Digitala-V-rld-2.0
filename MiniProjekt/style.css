@@ -30,7 +30,7 @@ body {
     padding: 1rem;
 }
 
-/* Header & Nav */
+/* Header och Nav */
 .app-header {
     display: flex;
     flex-direction: column;
@@ -299,7 +299,7 @@ textarea {
 .cart-content { 
     width: 95%; 
     max-width: 500px; 
-    background: #1e293b; /* Helt opak bakgrundsfärg */
+    background: #1e293b; 
     border: 2px solid var(--accent);
     border-radius: 24px; 
     padding: 2rem; 
@@ -320,14 +320,14 @@ textarea {
 
 #cart-items {
     overflow-y: auto;
-    overflow-x: hidden; /* Förhindra horisontell scroll */
+    overflow-x: hidden; 
     flex-grow: 1;
     margin-bottom: 1.5rem;
 }
 
 .cart-item {
     display: grid;
-    grid-template-columns: 60px 1fr auto; /* Justerad för att slippa extra kolumn */
+    grid-template-columns: 60px 1fr auto; 
     align-items: center;
     gap: 1rem;
     padding: 1rem 0;
@@ -423,8 +423,8 @@ textarea {
 }
 
 body {
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
 }
 
 @media (max-width: 768px) {
