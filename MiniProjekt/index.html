@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min Digitala Värld</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <h1>Mini Projekt</h1>
+            </div>
+            <nav class="app-nav">
+                <button class="nav-tab active" data-tab="diary">
+                    Dagbok
+                </button>
+                <button class="nav-tab" data-tab="rps">
+                    Spel
+                </button>
+                <button class="nav-tab" data-tab="quiz">
+                    Quiz
+                </button>
+                <button class="nav-tab" data-tab="shop">
+                    Shop
+                </button>
+            </nav>
+        </header>
+
+        <main class="app-content">
+            <!-- Tab 1: Dagbok -->
+            <section id="diary" class="tab-content active">
+                <div class="content-header">
+                    <h2>Min Dagbok</h2>
+                    <div id="weather-widget" class="weather-widget">
+                        <i class="fas fa-cloud-sun"></i> Hämtar väder...
+                    </div>
+                </div>
+                <div class="diary-container">
+                    <div class="diary-controls card">
+                        <div class="search-box">
+                            <input type="text" id="diary-search" placeholder="Sök i dina inlägg...">
+                        </div>
+                    </div>
+                    <form id="diary-form" class="diary-form card">
+                        <input type="hidden" id="post-id">
+                        <input type="text" id="diary-title" placeholder="Rubrik (valfritt)">
+                        <textarea id="diary-content" placeholder="Vad tänker du på?" required></textarea>
+                        <div class="form-row">
+                            <button type="submit" id="save-post" class="btn-primary">
+                                Spara
+                            </button>
+                        </div>
+                    </form>
+                    <div id="diary-posts" class="diary-posts"></div>
+                </div>
+            </section>
+
+            <!-- Tab 2: Sten Sax Påse -->
+            <section id="rps" class="tab-content">
+                <div class="content-header">
+                    <h2>Sten Sax Påse</h2>
+                    <div class="game-score">
+                        Du: <span id="player-score">0</span> | Dator: <span id="computer-score">0</span>
+                    </div>
+                </div>
+                <div class="game-container card">
+                    <div class="game-display">
+                        <div id="game-message" class="game-message">Välj ditt drag!</div>
+                        <div id="computer-choice" class="choice-preview">
+                            Robot
+                        </div>
+                    </div>
+                    <div class="game-choices">
+                        <button class="choice-btn" data-choice="sten">
+                            <span></span>
+                            <span>Sten</span>
+                        </button>
+                        <button class="choice-btn" data-choice="sax">
+                            <span></span>
+                            <span>Sax</span>
+                        </button>
+                        <button class="choice-btn" data-choice="påse">
+                            <span></span>
+                            <span>Påse</span>
+                        </button>
+                    </div>
+                    <button id="reset-game" class="btn-secondary">
+                        <i class="fas fa-rotate-left"></i> Starta om
+                    </button>
+                </div>
+            </section>
+
+            <!-- Tab 3: Quiz -->
+            <section id="quiz" class="tab-content">
+                <div class="content-header">
+                    <h2>Snabb Quiz</h2>
+                    <div id="quiz-score-display">Poäng: <span id="quiz-points">0</span></div>
+                </div>
+                <div class="quiz-container card">
+                    <div id="quiz-start-screen">
+                        <p>Testa dina kunskaper! Är du redo?</p>
+                        <button id="start-quiz-btn" class="btn-primary" style="margin-top: 1rem;">Starta Quiz</button>
+                    </div>
+                    <div id="quiz-game-screen" class="hidden">
+                        <div id="quiz-question" class="quiz-question">Fråga laddas...</div>
+                        <div id="quiz-options" class="quiz-options"></div>
+                    </div>
+                    <div id="quiz-result-screen" class="hidden">
+                        <h3>Bra jobbat!</h3>
+                        <p id="quiz-final-result"></p>
+                        <button id="restart-quiz-btn" class="btn-secondary" style="margin-top: 1rem;">Försök igen</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 4: Webbshop -->
+            <section id="shop" class="tab-content">
+                <div class="content-header">
+                    <h2>Min Webbshop</h2>
+                    <button id="open-cart-btn" class="cart-btn">
+                        <span>Varukorg</span>
+                        <span id="cart-count" class="cart-badge">0</span>
+                    </button>
+                </div>
+                <div class="shop-layout">
+                    <div id="product-list" class="product-grid"></div>
+                </div>
+                
+                <!-- Kundvagn Modal (enkel version) -->
+                <div id="cart-modal" class="cart-modal hidden">
+                    <div class="cart-content card">
+                        <div class="cart-header">
+                            <h3>Din Kundvagn</h3>
+                            <button id="close-cart-btn" class="action-btn"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div id="cart-items"></div>
+                        <div class="cart-footer">
+                            <div class="cart-total">
+                                <span class="cart-total-label">Totalbelopp:</span>
+                                <span class="cart-total-amount"><span id="cart-total-price">0</span> kr</span>
+                            </div>
+                            <button id="checkout-btn" class="btn-primary" style="width: 100%; justify-content: center;">Slutför köp</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
